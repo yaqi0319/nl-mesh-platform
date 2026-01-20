@@ -87,7 +87,7 @@ class ModelInfo(BaseModel):
     vertex_count: int = Field(..., description="顶点数量")
     face_count: int = Field(..., description="面片数量")
     bounding_box: List[float] = Field(..., description="边界框")
-    upload_time: datetime = Field(..., description="上传时间")
+    upload_time: datetime = Field(default_factory=datetime.now, description="上传时间")
     features: List[GeometricFeature] = Field(default_factory=list, description="特征列表")
 
 

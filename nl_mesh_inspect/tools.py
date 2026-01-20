@@ -79,7 +79,7 @@ class ModelLoader:
             vertex_count=len(mesh.vertices),
             face_count=len(mesh.faces),
             bounding_box=bounding_box,
-            upload_time=None,  # 由调用者设置
+            # upload_time 现在有默认值，会自动设置为当前时间
             features=[]
         )
 

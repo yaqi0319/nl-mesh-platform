@@ -13,6 +13,7 @@ dependencies = [
     "langchain",
     "openai",
     "pydantic",
+    "python-multipart>=0.0.20",
     "pyvista",
     "trimesh",
     "uvicorn",

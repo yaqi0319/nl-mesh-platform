@@ -82,15 +82,12 @@ async def health_check():
 @app.post("/api/models/upload", response_model=dict)
 async def upload_model(
     file: UploadFile = File(...),
-    format: str = Form(...)
+    file_format: ModelFormat = Form(...)
 ):
     """上传3D模型文件"""
     try:
-        # 验证文件格式
-        if format.upper() not in ModelFormat.__members__:
-            raise HTTPException(status_code=400, detail=f"不支持的格式: {format}")
-
-        model_format = ModelFormat(format.lower())
+        # FastAPI 已自动验证和转换格式，直接使用
+        model_format = file_format
 
         # 读取文件内容
         file_content = await file.read()
@@ -252,7 +249,8 @@ async def general_exception_handler(request, exc):
 os.makedirs("uploads", exist_ok=True)
 
 # 挂载静态文件（用于前端）
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# 前端独立部署，暂时注释静态文件挂载
+# app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 if __name__ == "__main__":
