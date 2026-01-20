@@ -17,7 +17,13 @@
       "Bash(python -m pytest:*)",
       "Bash(python3 -m pytest:*)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(uv add:*)",
+      "Bash(dir)",
+      "Bash(del:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv status)",
+      "Bash(uv run python:*)"
     ],
     "deny": []
   }
